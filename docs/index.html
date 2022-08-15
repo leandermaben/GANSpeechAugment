@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta name="google-site-verification" content="ftFOlJETX-2KNjaPh8W6s8lhigItRuu9fOmjHZZ0nY0" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <title>Study of GANs for Noisy Speech Simulation from Clean Speech</title>
+</head>
+<style type="text/css">
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+  thead>tr>th:first-child {
+    width: 96px;
+  }
+
+  th{
+    text-align: center;
+  }
+
+  @media (max-width: 767px) {
+    .big-screen {
+      display: none;
+    }
+  }
+
+  @media (min-width: 767px) {
+    .small-screen {
+      display: none;
+    }
+  }
+</style>
+
+<body>
+  <header class="header">
+    <div class="jumbotron bg-secondary text-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <h1><a class="text-light"
+                href="">Study of GANs for Noisy Speech Simulation from Clean Speech</a></h1>
+            <p>
+              <div class="row">
+                <div class="col-md col-sm-12"><a class="text-light"
+                    href="">Leander Maben</a> </div>
+                <div class="col-md col-sm-12"><a class="text-light"
+                    href="">Guo Zixun</a> </div>
+                <div class="col-md col-sm-12"><a class="text-light"
+                    href="">Utkarsh Chudiwal</a> </div>
+              </div>
+            </p>
+            <p><a class="text-light">Manipal Institute of Technology, Manipal, India<br>
+                School of Computer Science and Engineering, Nanyang Technological University, Singapore<br>
+                Indian Institute of Technology, Indore, India<br>
+              
+               </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row" id="monolingual">
+        <div class="col">
+          <h2>Abstract</h2>
+          <div>
+            <p> The performance of speech processing models trained on clean speech deteriorates significantly in the presence of noisy speech. While training with a noisy dataset is the most straightforward solution, procuring such datasets is not always feasible. Noisy speech simulation techniques that generate noisy speech from clean speech play an indispensable role in training robust models for audio processing tasks. 
+                In our work, we focus on studying the ability of GANs to simulate a variety of noises. In particular, we study noise from the categories of UHF/VHF, Additive Stationary and Non-Stationary as well as Codec distortion. We study the performance of four GANs including SpeechAttentionGAN, SimuGAN and MaskCycleGAN which perform non-parallel translation and Speech2Speech-Augment which performs parallel translation.
+                 Our experiments provide a comprehensive guideline for researches to pick the right kind of GAN for the right type of noise to generate simulated noisy speech. We compare our models against a baseline which generates noisy speech using aggregated noise and a codec. We get improvements of  55.8% , 28.9% and 22.8% in terms of MSSL as compared to the baseline for the RATS, TIMIT Cabin and TIMIT Helicopter datasets respectively.
+          </div>
+        </div>
+      </div>
+      <hr>
+      
+      <div class="row" id="result">
+        <div class="col-md-12">
+          <h2>Speech Samples</h2>
+          <p>A few generated samples from all the models for each dataset are presented.</p>
+            <p style="color:red;">Please put on your earphones when linstening to these samples.</p>
+                  <div class="big-screen">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th> Dataset </th>
+                          <th>Clean speech</th>
+                          <th>SpeechAttentionGAN</th>
+                          <th>MaskCycleGAN Augment</th>
+                          <th>SimuGAN</th>
+                          <th>Speech2Speech Augment</th>
+                          <th>Actual Noisy Speech</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">RATS</th>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/clean_rats.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/att_rats.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/mcg_rats.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/cut_rats.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/pix_rats.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/noisy_rats.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th scope="row">Cabin</th>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_clean.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_att_cab.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_mcg_cab.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_cut_cab.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_pix_cab.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_noisy_cabin.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+                      </tr>
+                        <tr>
+                        <tr>
+                          <th scope="row">Helicopter</th>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_clean.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_att_heli.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_mcg_heli.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_cut_heli.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_pix_heli.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                          <td>
+                            <audio controls controlsList="nodownload">
+                              <source src="./audio/SX413_noisy_heli.wav" type="audio/wav" />
+                              Your browser does not support the audio element.
+                            </audio>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <tr>
+                            <th scope="row">Codec2</th>
+                            <td>
+                                <audio controls controlsList="nodownload">
+                                  <source src="./audio/SX413_clean.wav" type="audio/wav" />
+                                  Your browser does not support the audio element.
+                                </audio>
+                              </td>
+                              <td>
+                                <audio controls controlsList="nodownload">
+                                  <source src="./audio/SX413_att_cd2.wav" type="audio/wav" />
+                                  Your browser does not support the audio element.
+                                </audio>
+                              </td>
+                              <td>
+                                <audio controls controlsList="nodownload">
+                                  <source src="./audio/SX413_mcg_cd2.wav" type="audio/wav" />
+                                  Your browser does not support the audio element.
+                                </audio>
+                              </td>
+                              <td>
+                                <audio controls controlsList="nodownload">
+                                  <source src="./audio/SX413_cut_cd2.wav" type="audio/wav" />
+                                  Your browser does not support the audio element.
+                                </audio>
+                              </td>
+                              <td>
+                                <audio controls controlsList="nodownload">
+                                  <source src="./audio/SX413_pix_cd2.wav" type="audio/wav" />
+                                  Your browser does not support the audio element.
+                                </audio>
+                              </td>
+                              <td>
+                                <audio controls controlsList="nodownload">
+                                  <source src="./audio/SX413_noisy_cd2.wav" type="audio/wav" />
+                                  Your browser does not support the audio element.
+                                </audio>
+                              </td>
+                          </tr>
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                  
+        </div>
+      </div>
+      <hr>
+
+      <!-- <div class="row" id="contact">
+          <div class="col">
+            <h2>Contact</h2>
+            <div></div>
+          </div>
+        </div> -->
+    </div>
+  </main>
+  <footer class="bg-secondary text-light mt-4 pt-3 pb-2 ">
+    <div class="container">
+      <p class="text-center">
+        <small>
+          Audio Augmentation
+          <br>
+          Noisy Speech Simulation <br>via Adversarial Training
+          <br>
+         
+        </small>
+      </p>
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

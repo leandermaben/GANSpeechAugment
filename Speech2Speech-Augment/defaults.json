@@ -1,0 +1,21 @@
+{
+    "fix_w":128,
+    "sampling_rate":8000,
+    "test_source":"/content/Pix2Pix-VC/data_cache/noisy/test",
+    "test_results":"/content/Pix2Pix-VC/results/attention_rats_ted_actual_nocyclenomask/test_latest/audios/fake_B",
+    "use_gender_test":false,
+    "nfft":256,
+    "n_fft":256,
+    "align_hop":1,
+    "align_win_len":256,
+    "norm_overlap":128,
+    "norm_frameSz":256,
+    "lsd_eps":1e-9,
+    "standard_lufs":-23.0,
+    "mssl_overlap":0.75,
+    "mssl_mag_weight":1,
+    "mssl_logmag_weight":1,
+    "metrics_temp_cache":"/content/Pix2Pix-VC/temp",
+    "load_size":128,
+    "annotations":"/content/drive/MyDrive/NTU - Speech Augmentation/annotations.csv"
+}
